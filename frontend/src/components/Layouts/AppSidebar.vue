@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative flex h-full flex-col justify-between transition-all duration-300 ease-in-out"
+    class="relative flex h-full flex-col justify-between transition-all duration-300 ease-in-out bg-[#05053d]"
     :class="isSidebarCollapsed ? 'w-12' : 'w-[220px]'"
   >
     <div>
