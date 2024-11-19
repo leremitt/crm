@@ -34,7 +34,7 @@
               <template #target="{ open }">
                 <Button
                   :label="data[field.name]"
-                  class="dropdown-button flex w-full items-center justify-between rounded border border-gray-100 bg-gray-100 px-2 py-1.5 text-base text-gray-800 placeholder-gray-500 transition-colors hover:border-gray-200 hover:bg-gray-200 focus:border-gray-500 focus:bg-[] focus:shadow-sm focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-gray-400"
+                  class="dropdown-button flex w-full items-center justify-between rounded border border-gray-100 bg-gray-100 px-2 py-1.5 text-base text-gray-800 placeholder-gray-500 transition-colors hover:border-gray-200 hover:bg-gray-200 focus:border-gray-500 focus:bg-white focus:shadow-sm focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-gray-400"
                 >
                   <div v-if="data[field.name]" class="truncate">
                     {{ data[field.name] }}
@@ -45,7 +45,7 @@
                   <template #suffix>
                     <FeatherIcon
                       :name="open ? 'chevron-up' : 'chevron-down'"
-                      class="h-4 text-white"
+                      class="h-4 text-gray-600"
                     />
                   </template>
                 </Button>
@@ -62,7 +62,7 @@
                       :option="option"
                     />
                     <div v-else>
-                      <div class="p-1.5 px-7 text-base">
+                      <div class="p-1.5 px-7 text-base text-gray-500">
                         {{ __('No {0} Available', [field.label]) }}
                       </div>
                     </div>
