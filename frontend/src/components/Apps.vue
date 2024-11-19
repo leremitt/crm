@@ -4,7 +4,7 @@
       <button
         :class="[
           active ? 'bg-gray-100' : 'text-gray-800',
-          'group w-full flex h-7 items-center justify-between rounded px-2 text-base hover:bg-gray-100',
+          'group w-full flex h-7 items-center justify-between rounded px-2 text-base',
         ]"
         @click.prevent="togglePopover()"
       >
@@ -24,7 +24,7 @@
         <div v-for="app in apps.data" :key="app.name">
           <a
             :href="app.route"
-            class="flex flex-col gap-1.5 rounded justify-center items-center py-2 px-1 hover:bg-gray-100"
+            class="flex flex-col gap-1.5 rounded justify-center items-center py-2 px-1"
           >
             <img class="size-8" :src="app.logo" />
             <div class="text-sm text-gray-700" @click="app.onClick">
