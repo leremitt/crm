@@ -18,6 +18,9 @@
   "job_title",
   "source",
   "lead_owner",
+  "medium",
+  "onboarding_status",
+  "campaign",
   "person_tab",
   "salutation",
   "first_name",
@@ -285,12 +288,35 @@
    "fieldtype": "Table",
    "label": "Status Change Log",
    "options": "CRM Status Change Log"
+  },
+  {
+   "fieldname": "medium",
+   "fieldtype": "Data",
+   "label": "Medium"
+  },
+  {
+   "fieldname": "onboarding_status",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Onboarding Status",
+   "options": "Onboarding Pending\nEmail Registration\nPassword\nUser Type\nPAN Submission\nRegistered\nDocuments Submitted\nApproved",
+   "sort_options": 1
+  },
+  {
+   "fieldname": "campaign",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Campaign"
   }
  ],
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-17 18:36:57.289897",
+ "modified": "2024-11-20 11:39:20.748173",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Lead",
