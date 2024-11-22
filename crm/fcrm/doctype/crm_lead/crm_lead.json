@@ -27,6 +27,7 @@
      "zip_code",
      "country",
      "description",
+     "products",
      "person_tab",
      "salutation",
      "first_name",
@@ -347,12 +348,18 @@
       "fieldname": "description",
       "fieldtype": "Long Text",
       "label": "Description "
+     },
+     {
+      "fieldname": "products",
+      "fieldtype": "Table MultiSelect",
+      "label": "Products",
+      "options": "CRM Products List"
      }
     ],
     "image_field": "image",
     "index_web_pages_for_search": 1,
     "links": [],
-    "modified": "2024-11-21 16:26:11.291580",
+    "modified": "2024-11-22 16:49:49.871395",
     "modified_by": "Administrator",
     "module": "FCRM",
     "name": "CRM Lead",
