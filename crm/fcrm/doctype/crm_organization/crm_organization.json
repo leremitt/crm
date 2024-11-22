@@ -12,6 +12,9 @@
   "currency",
   "annual_revenue",
   "organization_logo",
+  "account_type",
+  "gst",
+  "source",
   "column_break_pnpp",
   "website",
   "territory",
@@ -74,12 +77,28 @@
    "fieldtype": "Link",
    "label": "Address",
    "options": "Address"
+  },
+  {
+   "fieldname": "account_type",
+   "fieldtype": "Data",
+   "label": "Account Type"
+  },
+  {
+   "fieldname": "gst",
+   "fieldtype": "Data",
+   "label": "GST"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "label": "Source",
+   "options": "CRM Lead Source"
   }
  ],
  "image_field": "organization_logo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-17 18:37:10.341062",
+ "modified": "2024-11-22 14:09:16.592125",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Organization",
