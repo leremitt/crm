@@ -54,6 +54,9 @@
      "log_tab",
      "status_change_log"
     ],
+
+
+    
     "fields": [
      {
       "default": "CRM-LEAD-.YYYY.-",
