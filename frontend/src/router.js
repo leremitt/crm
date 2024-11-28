@@ -27,9 +27,9 @@ const routes = [
     props: true,
   },
   {
-    alias: '/deals',
+    alias: '/Opportunities',
     path: '/deals/view/:viewType?',
-    name: 'Deals',
+    name: 'Opportunities',
     component: () => import('@/pages/Deals.vue'),
     meta: { scrollPos: { top: 0, left: 0 } },
   },
@@ -65,9 +65,9 @@ const routes = [
     props: true,
   },
   {
-    alias: '/organizations',
+    alias: '/Accounts',
     path: '/organizations/view/:viewType?',
-    name: 'Organizations',
+    name: 'Accounts',
     component: () => import('@/pages/Organizations.vue'),
     meta: { scrollPos: { top: 0, left: 0 } },
   },
