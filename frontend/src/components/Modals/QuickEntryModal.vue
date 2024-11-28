@@ -26,6 +26,7 @@
               'Contact',
               'CRM Organization',
               'Address',
+              'UTM Campaign'
             ]"
             @change="reload"
           />

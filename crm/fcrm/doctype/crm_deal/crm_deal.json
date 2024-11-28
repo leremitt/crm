@@ -12,6 +12,7 @@
   "organization",
   "next_step",
   "probability",
+  "product",
   "column_break_ijan",
   "status",
   "close_date",
@@ -76,6 +77,12 @@
    "label": "Amount",
    "options": "currency"
   },
+  {
+    "fieldname": "product",
+    "fieldtype": "Link",
+    "label": "Product",
+    "options": "CRM Products"
+   },
   {
    "fetch_from": ".website",
    "fieldname": "website",
