@@ -8,13 +8,12 @@
         v-if="contactsListView?.customListActions"
         :actions="contactsListView.customListActions"
       />
-      <Button
-        variant="solid"
-        :label="__('Create')"
-        @click="showContactModal = true"
-      >
-        <template #prefix><FeatherIcon name="plus" class="h-4" /></template>
-      </Button>
+      <button
+        class="flex items-center px-1 py-1 rounded text-nowrap text-white hover:bg-[#007be0]"
+        @click="showContactModal = true">
+        <FeatherIcon name="plus" class="h-4 mr-1" />
+        {{ __('Create') }}
+      </button>
     </template>
   </LayoutHeader>
   <ViewControls

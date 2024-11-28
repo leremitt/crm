@@ -1,7 +1,7 @@
 <template>
   <button
     class="flex h-7 cursor-pointer items-center rounded text-white duration-300 ease-in-out"
-    :class="isActive ? 'bg-[#007be0] shadow-sm' : ''"
+    :class="isActive ? 'bg-[#007be0] shadow-sm' : 'hover:bg-[#007be0]'"
     @click="handleClick"
   >
     <div

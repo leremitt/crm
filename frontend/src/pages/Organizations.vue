@@ -1,20 +1,19 @@
 <template>
   <LayoutHeader>
     <template #left-header>
-      <ViewBreadcrumbs v-model="viewControls" routeName="Organizations" />
+      <ViewBreadcrumbs v-model="viewControls" routeName="Accounts" />
     </template>
     <template #right-header>
       <CustomActions
         v-if="organizationsListView?.customListActions"
         :actions="organizationsListView.customListActions"
       />
-      <Button
-        variant="solid"
-        :label="__('Create')"
-        @click="showOrganizationModal = true"
-      >
-        <template #prefix><FeatherIcon name="plus" class="h-4" /></template>
-      </Button>
+      <button
+        class="flex items-center px-1 py-1 rounded text-nowrap text-white hover:bg-[#007be0]"
+        @click="showOrganizationModal = true">
+        <FeatherIcon name="plus" class="h-4 mr-1" />
+        {{ __('Create') }}
+      </button>
     </template>
   </LayoutHeader>
   <ViewControls
@@ -53,7 +52,7 @@
       class="flex flex-col items-center gap-3 text-xl font-medium text-gray-500"
     >
       <OrganizationsIcon class="h-10 w-10" />
-      <span>{{ __('No {0} Found', [__('Organizations')]) }}</span>
+      <span>{{ __('No {0} Found', [__('Accounts')]) }}</span>
       <Button :label="__('Create')" @click="showOrganizationModal = true">
         <template #prefix><FeatherIcon name="plus" class="h-4" /></template>
       </Button>

@@ -12,6 +12,7 @@
   "organization",
   "next_step",
   "probability",
+  "product",
   "column_break_ijan",
   "status",
   "close_date",
@@ -334,11 +335,17 @@
    "fieldtype": "Link",
    "label": "Currency",
    "options": "Currency"
+  },
+  {
+   "fieldname": "product",
+   "fieldtype": "Link",
+   "label": "Product",
+   "options": "CRM Products"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-17 18:34:15.873610",
+ "modified": "2024-11-28 20:33:43.618126",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Deal",

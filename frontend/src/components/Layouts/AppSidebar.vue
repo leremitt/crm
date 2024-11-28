@@ -132,9 +132,9 @@ const links = [
     to: 'Leads',
   },
   {
-    label: 'Deals',
+    label: 'Opportunities',
     icon: DealsIcon,
-    to: 'Deals',
+    to: 'Opportunities',
   },
   {
     label: 'Contacts',
@@ -142,30 +142,16 @@ const links = [
     to: 'Contacts',
   },
   {
-    label: 'Organizations',
+    label: 'Accounts',
     icon: OrganizationsIcon,
-    to: 'Organizations',
+    to: 'Accounts',
   },
   {
-    label: 'Notes',
-    icon: NoteIcon,
-    to: 'Notes',
+    label: 'Campaigns',
+    icon: OrganizationsIcon,
+    to: 'Campaigns',
   },
-  {
-    label: 'Tasks',
-    icon: TaskIcon,
-    to: 'Tasks',
-  },
-  {
-    label: 'Call Logs',
-    icon: PhoneIcon,
-    to: 'Call Logs',
-  },
-  {
-    label: 'Email Templates',
-    icon: Email2Icon,
-    to: 'Email Templates',
-  },
+  
 ]
 
 const allViews = computed(() => {

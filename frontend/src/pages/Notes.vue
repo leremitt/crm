@@ -4,9 +4,12 @@
       <ViewBreadcrumbs v-model="viewControls" routeName="Notes" />
     </template>
     <template #right-header>
-      <Button variant="solid" :label="__('Create')" @click="createNote">
-        <template #prefix><FeatherIcon name="plus" class="h-4" /></template>
-      </Button>
+      <button
+        class="flex items-center px-1 py-1 rounded text-nowrap text-white hover:bg-[#007be0]"
+        @click="createNote">
+        <FeatherIcon name="plus" class="h-4 mr-1" />
+        {{ __('Create') }}
+      </button>
     </template>
   </LayoutHeader>
   <ViewControls

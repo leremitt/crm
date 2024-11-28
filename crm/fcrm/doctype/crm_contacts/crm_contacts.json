@@ -9,6 +9,7 @@
   "contact",
   "full_name",
   "email",
+  "source",
   "column_break_uvny",
   "gender",
   "mobile_no",
@@ -74,12 +75,18 @@
    "fieldtype": "Check",
    "in_list_view": 1,
    "label": "Is Primary"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "label": "Source",
+   "options": "CRM Lead Source"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-11-12 14:58:18.846919",
+ "modified": "2024-11-22 14:06:32.528729",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Contacts",
