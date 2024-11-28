@@ -114,9 +114,9 @@ const links = [
     to: 'Leads',
   },
   {
-    label: 'Deals',
+    label: 'Opportunities',
     icon: DealsIcon,
-    to: 'Deals',
+    to: 'Opportunities',
   },
   {
     label: 'Contacts',
@@ -124,9 +124,9 @@ const links = [
     to: 'Contacts',
   },
   {
-    label: 'Organizations',
+    label: 'Accounts',
     icon: OrganizationsIcon,
-    to: 'Organizations',
+    to: 'Accounts',
   },
   {
     label: 'Notes',

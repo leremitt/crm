@@ -157,7 +157,7 @@
       <template #default="{ tab }">
         <DealsListView
           class="mt-4"
-          v-if="tab.label === 'Deals' && rows.length"
+          v-if="tab.label === 'Opportunities' && rows.length"
           :rows="rows"
           :columns="columns"
           :options="{ selectable: false, showTooltip: false }"
@@ -274,7 +274,7 @@ async function updateField(fieldname, value) {
 }
 
 const breadcrumbs = computed(() => {
-  let items = [{ label: __('Organizations'), route: { name: 'Organizations' } }]
+  let items = [{ label: __('Accounts'), route: { name: 'Accounts' } }]
 
   if (route.query.view || route.query.viewType) {
     let view = getView(
@@ -287,7 +287,7 @@ const breadcrumbs = computed(() => {
         label: __(view.label),
         icon: view.icon,
         route: {
-          name: 'Organizations',
+          name: 'Accounts',
           params: { viewType: route.query.viewType },
           query: { view: route.query.view },
         },
@@ -343,7 +343,7 @@ async function deleteOrganization() {
             name: props.organizationId,
           })
           close()
-          router.push({ name: 'Organizations' })
+          router.push({ name: 'Accounts' })
         },
       },
     ],
@@ -411,7 +411,7 @@ function getParsedFields(data) {
 const tabIndex = ref(0)
 const tabs = [
   {
-    label: 'Deals',
+    label: 'Opportunities',
     icon: h(DealsIcon, { class: 'h-4 w-4' }),
     count: computed(() => deals.data?.length),
   },

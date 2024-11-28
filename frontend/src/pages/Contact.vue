@@ -171,7 +171,7 @@
       </template>
       <template #default="{ tab }">
         <DealsListView
-          v-if="tab.label === 'Deals' && rows.length"
+          v-if="tab.label === 'Opportunities' && rows.length"
           class="mt-4"
           :rows="rows"
           :columns="columns"
@@ -347,7 +347,7 @@ async function deleteContact() {
 const tabIndex = ref(0)
 const tabs = [
   {
-    label: 'Deals',
+    label: 'Opportunities',
     icon: h(DealsIcon, { class: 'h-4 w-4' }),
     count: computed(() => deals.data?.length),
   },
