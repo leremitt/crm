@@ -184,7 +184,7 @@ function handleOrganizationUpdate(doc, renamed = false) {
 
 const dialogOptions = computed(() => {
   let title = !editMode.value
-    ? __('New Organization')
+    ? __('New Account')
     : __(_organization.value.organization_name)
   let size = detailMode.value ? '' : 'xl'
   let actions = detailMode.value

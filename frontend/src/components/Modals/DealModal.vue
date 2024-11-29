@@ -25,7 +25,7 @@
         <div>
           <div class="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div class="flex items-center gap-3 text-sm text-gray-600">
-              <div>{{ __('Choose Existing Organization') }}</div>
+              <div>{{ __('Choose Existing Account') }}</div>
               <Switch v-model="chooseExistingOrganization" />
             </div>
             <div class="flex items-center gap-3 text-sm text-gray-600">
