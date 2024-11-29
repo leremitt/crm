@@ -15,6 +15,9 @@
   "account_type",
   "gst",
   "source",
+  "remittance",
+  "document_management",
+  "trade_finance",
   "column_break_pnpp",
   "website",
   "territory",
@@ -25,7 +28,7 @@
   {
    "fieldname": "organization_name",
    "fieldtype": "Data",
-   "label": "Account Name",
+   "label": "Organization Name",
    "unique": 1
   },
   {
@@ -93,12 +96,30 @@
    "fieldtype": "Select",
    "label": "Source",
    "options": "CRM Lead Source"
+  },
+  {
+   "default": "0",
+   "fieldname": "remittance",
+   "fieldtype": "Check",
+   "label": "Remittance "
+  },
+  {
+   "default": "0",
+   "fieldname": "document_management",
+   "fieldtype": "Check",
+   "label": "Document Management"
+  },
+  {
+   "default": "0",
+   "fieldname": "trade_finance",
+   "fieldtype": "Check",
+   "label": "Trade Finance"
   }
  ],
  "image_field": "organization_logo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-22 14:09:16.592125",
+ "modified": "2024-11-29 08:51:09.642092",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Organization",
