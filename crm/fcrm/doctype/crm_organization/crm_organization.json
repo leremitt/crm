@@ -18,6 +18,9 @@
   "remittance",
   "document_management",
   "trade_finance",
+  "remittance_stage",
+  "document_management_stage",
+  "trade_finance_stage",
   "column_break_pnpp",
   "website",
   "territory",
@@ -93,7 +96,7 @@
   },
   {
    "fieldname": "source",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Source",
    "options": "CRM Lead Source"
   },
@@ -114,12 +117,31 @@
    "fieldname": "trade_finance",
    "fieldtype": "Check",
    "label": "Trade Finance"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "remittance_stage",
+   "fieldtype": "Link",
+   "label": "Remittance Stage",
+   "options": "CRM Remittance List"
+  },
+  {
+   "fieldname": "document_management_stage",
+   "fieldtype": "Link",
+   "label": "Document Management Stage",
+   "options": "CRM Document List"
+  },
+  {
+   "fieldname": "trade_finance_stage",
+   "fieldtype": "Link",
+   "label": "Trade Finance Stage",
+   "options": "CRM Trade Finance List"
   }
  ],
  "image_field": "organization_logo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-29 08:51:09.642092",
+ "modified": "2024-11-29 10:07:11.503765",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Organization",
