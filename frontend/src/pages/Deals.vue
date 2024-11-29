@@ -1,7 +1,7 @@
 <template>
   <LayoutHeader>
     <template #left-header>
-      <ViewBreadcrumbs v-model="viewControls" routeName="Deals" />
+      <ViewBreadcrumbs v-model="viewControls" routeName="Opportunities" />
     </template>
     <template #right-header>
       <CustomActions
@@ -228,7 +228,7 @@
       class="flex flex-col items-center gap-3 text-xl font-medium text-gray-500"
     >
       <DealsIcon class="h-10 w-10" />
-      <span>{{ __('No {0} Found', [__('Deals')]) }}</span>
+      <span>{{ __('No {0} Found', [__('Opportunities')]) }}</span>
       <Button :label="__('Create')" @click="showDealModal = true">
         <template #prefix><FeatherIcon name="plus" class="h-4" /></template>
       </Button>

@@ -111,7 +111,7 @@
     >
       <template #tab="{ tab, selected }">
         <button
-          v-if="tab.name == 'Deals'"
+          v-if="tab.name == 'Opportunities'"
           class="group flex items-center gap-2 border-b border-transparent py-2.5 text-base text-gray-600 duration-300 ease-in-out hover:border-gray-400 hover:text-gray-900"
           :class="{ 'text-gray-900': selected }"
         >
@@ -154,14 +154,14 @@
           </div>
         </div>
         <DealsListView
-          v-else-if="tab.label === 'Deals' && rows.length"
+          v-else-if="tab.label === 'Opportunities' && rows.length"
           class="mt-4"
           :rows="rows"
           :columns="columns"
           :options="{ selectable: false, showTooltip: false }"
         />
         <div
-          v-if="tab.label === 'Deals' && !rows.length"
+          v-if="tab.label === 'Opportunities' && !rows.length"
           class="grid flex-1 place-items-center text-xl font-medium text-gray-500"
         >
           <div class="flex flex-col items-center justify-center space-y-3">

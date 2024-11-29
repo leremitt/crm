@@ -236,7 +236,7 @@ async function updateField(fieldname, value) {
 }
 
 const breadcrumbs = computed(() => {
-  let items = [{ label: __('Organizations'), route: { name: 'Organizations' } }]
+  let items = [{ label: __('Accounts'), route: { name: 'Accounts' } }]
 
   if (route.query.view || route.query.viewType) {
     let view = getView(
@@ -249,7 +249,7 @@ const breadcrumbs = computed(() => {
         label: __(view.label),
         icon: view.icon,
         route: {
-          name: 'Organizations',
+          name: 'Accounts',
           params: { viewType: route.query.viewType },
           query: { view: route.query.view },
         },
@@ -305,7 +305,7 @@ async function deleteOrganization() {
             name: props.organizationId,
           })
           close()
-          router.push({ name: 'Organizations' })
+          router.push({ name: 'Accounts' })
         },
       },
     ],
