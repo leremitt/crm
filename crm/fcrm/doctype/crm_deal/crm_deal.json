@@ -12,7 +12,6 @@
   "organization",
   "next_step",
   "probability",
-  "product",
   "column_break_ijan",
   "status",
   "close_date",
@@ -30,6 +29,9 @@
   "website",
   "no_of_employees",
   "job_title",
+  "remittance",
+  "document_management",
+  "trade_finance",
   "column_break_xbyf",
   "territory",
   "currency",
@@ -50,6 +52,7 @@
   "column_break_pfvq",
   "sla_status",
   "communication_status",
+  "product",
   "response_details_section",
   "response_by",
   "column_break_hpvj",
@@ -62,7 +65,7 @@
   {
    "fieldname": "organization",
    "fieldtype": "Link",
-   "label": "Organization",
+   "label": "Account",
    "options": "CRM Organization"
   },
   {
@@ -77,12 +80,6 @@
    "label": "Amount",
    "options": "currency"
   },
-  {
-    "fieldname": "product",
-    "fieldtype": "Link",
-    "label": "Product",
-    "options": "CRM Products"
-   },
   {
    "fetch_from": ".website",
    "fieldname": "website",
@@ -154,7 +151,7 @@
   {
    "fieldname": "organization_tab",
    "fieldtype": "Tab Break",
-   "label": "Organization"
+   "label": "Account"
   },
   {
    "fieldname": "sla_tab",
@@ -287,7 +284,7 @@
   {
    "fieldname": "organization_name",
    "fieldtype": "Data",
-   "label": "Organization Name"
+   "label": "Account Name"
   },
   {
    "fieldname": "column_break_xbyf",
@@ -341,11 +338,35 @@
    "fieldtype": "Link",
    "label": "Currency",
    "options": "Currency"
+  },
+  {
+   "fieldname": "product",
+   "fieldtype": "Link",
+   "label": "Product",
+   "options": "CRM Products"
+  },
+  {
+   "default": "0",
+   "fieldname": "remittance",
+   "fieldtype": "Check",
+   "label": "Remittance "
+  },
+  {
+   "default": "0",
+   "fieldname": "document_management",
+   "fieldtype": "Check",
+   "label": "Document Management"
+  },
+  {
+   "default": "0",
+   "fieldname": "trade_finance",
+   "fieldtype": "Check",
+   "label": "Trade Finance"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-17 18:34:15.873610",
+ "modified": "2024-11-29 12:12:41.563230",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Deal",

@@ -306,9 +306,6 @@
   {
    "fieldname": "onboarding_status",
    "fieldtype": "Select",
-   "in_filter": 1,
-   "in_list_view": 1,
-   "in_standard_filter": 1,
    "label": "Onboarding Status",
    "options": "Onboarding Pending\nEmail Registration\nPassword\nUser Type\nPAN Submission\nRegistered\nDocuments Submitted\nApproved",
    "sort_options": 1
@@ -373,7 +370,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-29 08:50:35.468072",
+ "modified": "2024-11-29 12:15:29.574711",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Lead",
