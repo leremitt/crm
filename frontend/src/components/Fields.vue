@@ -23,13 +23,10 @@
         <div v-for="field in section.fields" :key="field.name">
           <div
             class="settings-field"
-            v-if="
-              (field.type == 'Check' ||
-                (field.read_only && data[field.name]) ||
-                !field.read_only ||
-                !field.hidden) &&
-              (!field.depends_on || field.display_via_depends_on)
-            "
+            v-show="(field.type == 'Check' ||
+      (field.read_only && data[field.name]) ||
+      !field.read_only ||
+      !field.hidden)"
           >
             <div
               v-if="field.type != 'Check'"
@@ -89,7 +86,7 @@
                 class="form-control flex-1"
                 :value="data[field.name]"
                 :doctype="field.options"
-                :filters="field.filters"
+                :filters=evaluateCondition(field.depends_on,data)
                 @change="(v) => (data[field.name] = v)"
                 :placeholder="getPlaceholder(field)"
                 :onCreate="field.create"
@@ -195,8 +192,28 @@ const getPlaceholder = (field) => {
     return __('Enter {0}', [__(field.label)])
   }
 }
-</script>
 
+const evaluateCondition = (condition,data) => {
+  try {
+    data = JSON.parse(JSON.stringify(data))
+    const regex = /doc\.(\w+)\s*==\s*["']([^"']+)["']/;
+    const match = condition.match(regex);
+    console.log(match[1],match[2])
+    console.log(data[match[1]], match[2])
+     console.log(data[match[1]] == match[2])
+    if (data[match[1]] == match[2]) {
+      return [data[match[1]],"=",match[2]]
+    }
+    else {
+      return []
+    }
+  } catch (error) {
+    console.error('Error evaluating depends_on condition:', error)
+    return []
+  }
+}
+
+</script>
 <style scoped>
 :deep(.form-control.prefix select) {
   padding-left: 2rem;
