@@ -122,26 +122,26 @@
    "allow_in_quick_entry": 1,
    "fieldname": "remittance_stage",
    "fieldtype": "Link",
-   "label": "Remittance Stage",
+   "label": "Remittance Status",
    "options": "CRM Remittance List"
   },
   {
    "fieldname": "document_management_stage",
    "fieldtype": "Link",
-   "label": "Document Management Stage",
+   "label": "Document Management Status",
    "options": "CRM Document List"
   },
   {
    "fieldname": "trade_finance_stage",
    "fieldtype": "Link",
-   "label": "Trade Finance Stage",
+   "label": "Trade Finance Status",
    "options": "CRM Trade Finance List"
   }
  ],
  "image_field": "organization_logo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-29 11:41:03.201887",
+ "modified": "2024-12-02 19:18:30.630147",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Organization",

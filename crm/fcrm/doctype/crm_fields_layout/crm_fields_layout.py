@@ -45,7 +45,8 @@ def get_fields_layout(doctype: str, type: str):
 					"options": field.options,
 					"mandatory": field.reqd,
 					"placeholder": field.get("placeholder"),
-					"filters": field.get("link_filters")
+					"filters": field.get("link_filters"),
+					"depends_on":field.get("depends_on")
 				}
 				section["fields"][section.get("fields").index(field["name"])] = field
 

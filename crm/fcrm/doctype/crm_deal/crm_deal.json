@@ -53,6 +53,9 @@
   "sla_status",
   "communication_status",
   "product",
+  "remittance_stage",
+  "document_management_stage",
+  "trade_finance_stage",
   "response_details_section",
   "response_by",
   "column_break_hpvj",
@@ -362,11 +365,32 @@
    "fieldname": "trade_finance",
    "fieldtype": "Check",
    "label": "Trade Finance"
+  },
+  {
+   "depends_on": "eval:doc.product == \"Remittance\";",
+   "fieldname": "remittance_stage",
+   "fieldtype": "Link",
+   "label": "Remittance Stage",
+   "options": "CRM Deal Remittance Stage"
+  },
+  {
+   "depends_on": "eval:doc.product == \"Document management\";",
+   "fieldname": "document_management_stage",
+   "fieldtype": "Link",
+   "label": "Document Management Stage",
+   "options": "CRM Deal DOC Stage"
+  },
+  {
+   "depends_on": "eval:doc.product == \"Trade finance\";",
+   "fieldname": "trade_finance_stage",
+   "fieldtype": "Link",
+   "label": "Trade Finance Stage",
+   "options": "CRM Trade Stage"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-29 12:12:41.563230",
+ "modified": "2024-12-02 16:45:53.873027",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Deal",

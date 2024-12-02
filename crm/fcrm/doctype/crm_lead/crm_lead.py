@@ -151,6 +151,10 @@ class CRMLead(Document):
 				"territory": self.territory,
 				"industry": self.industry,
 				"annual_revenue": self.annual_revenue,
+				"remittance":self.remittance,
+				"document_management":self.document_management,
+				"trade_finance":self.trade_finance,
+				"source":self.source
 			}
 		)
 		organization.insert(ignore_permissions=True)
