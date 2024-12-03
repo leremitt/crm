@@ -132,11 +132,6 @@ const links = [
     to: 'Leads',
   },
   {
-    label: 'Opportunities',
-    icon: DealsIcon,
-    to: 'Opportunities',
-  },
-  {
     label: 'Contacts',
     icon: ContactsIcon,
     to: 'Contacts',
@@ -145,6 +140,11 @@ const links = [
     label: 'Accounts',
     icon: OrganizationsIcon,
     to: 'Accounts',
+  },
+  {
+    label: 'Opportunities',
+    icon: DealsIcon,
+    to: 'Opportunities',
   },
   // {
   //   label: 'Campaigns',

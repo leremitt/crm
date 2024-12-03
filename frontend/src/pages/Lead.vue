@@ -34,7 +34,7 @@
         </template>
       </Dropdown>
       <Button
-        :label="__('Convert to Deal')"
+        :label="__('Convert')"
         variant="solid"
         @click="showConvertToDealModal = true"
       />
@@ -209,7 +209,7 @@
   <Dialog
     v-model="showConvertToDealModal"
     :options="{
-      title: __('Convert to Deal'),
+      title: __('Convert'),
       size: 'xl',
       actions: [
         {

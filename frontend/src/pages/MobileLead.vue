@@ -106,7 +106,7 @@
   <Dialog
     v-model="showConvertToDealModal"
     :options="{
-      title: __('Convert to Deal'),
+      title: __('Convert'),
       size: 'xl',
       actions: [
         {
