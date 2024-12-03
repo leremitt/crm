@@ -59,7 +59,7 @@ function editValues(selections, unselectAll) {
 
 function convertToDeal(selections, unselectAll) {
   $dialog({
-    title: __('Convert to Deal'),
+    title: __('Conver'),
     message: __('Are you sure you want to convert {0} Lead(s) to Deal(s)?', [
       selections.size,
     ]),
@@ -201,7 +201,7 @@ function bulkActions(selections, unselectAll) {
 
   if (props.doctype === 'CRM Lead') {
     actions.push({
-      label: __('Convert to Deal'),
+      label: __('Convert'),
       onClick: () => convertToDeal(selections, unselectAll),
     })
   }

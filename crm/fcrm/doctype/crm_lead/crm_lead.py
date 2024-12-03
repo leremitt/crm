@@ -352,5 +352,5 @@ def convert_to_deal(lead, doc=None):
 	lead.save(ignore_permissions=True)
 	contact = lead.create_contact(False)
 	organization = lead.create_organization()
-	deal = lead.create_deal(contact, organization)
-	return deal
+	# deal = lead.create_deal(contact, organization)
+	return organization
