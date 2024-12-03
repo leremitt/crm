@@ -26,7 +26,8 @@
             v-show="(field.type == 'Check' ||
       (field.read_only && data[field.name]) ||
       !field.read_only ||
-      !field.hidden)"
+      !field.hidden) &&
+    (!field.depends_on || evaluateCondition(field.depends_on,data))"
           >
             <div
               v-if="field.type != 'Check'"
@@ -86,7 +87,7 @@
                 class="form-control flex-1"
                 :value="data[field.name]"
                 :doctype="field.options"
-                :filters=evaluateCondition(field.depends_on,data)
+                :filters="field.filters"
                 @change="(v) => (data[field.name] = v)"
                 :placeholder="getPlaceholder(field)"
                 :onCreate="field.create"
@@ -202,14 +203,14 @@ const evaluateCondition = (condition,data) => {
     console.log(data[match[1]], match[2])
      console.log(data[match[1]] == match[2])
     if (data[match[1]] == match[2]) {
-      return [data[match[1]],"=",match[2]]
+      return true
     }
     else {
-      return []
+      return false
     }
   } catch (error) {
     console.error('Error evaluating depends_on condition:', error)
-    return []
+    return false
   }
 }
 

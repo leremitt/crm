@@ -5,7 +5,7 @@
         <div class="mb-5 flex items-center justify-between">
           <div>
             <h3 class="text-2xl font-semibold leading-6 text-gray-900">
-              {{ __('Create Deal') }}
+              {{ __('Create Opportunity') }}
             </h3>
           </div>
           <div class="flex items-center gap-1">
