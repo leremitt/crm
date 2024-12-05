@@ -180,13 +180,13 @@ function createDeal() {
     auto: true,
     validate() {
       error.value = null
-      if (deal.annual_revenue) {
-        deal.annual_revenue = deal.annual_revenue.replace(/,/g, '')
-        if (isNaN(deal.annual_revenue)) {
-          error.value = __('Annual Revenue should be a number')
-          return error.value
-        }
-      }
+      // if (deal.annual_revenue) {
+      //   deal.annual_revenue = deal.annual_revenue.replace(/,/g, '')
+      //   if (isNaN(deal.annual_revenue)) {
+      //     error.value = __('Annual Revenue should be a number')
+      //     return error.value
+      //   }
+      // }
       if (deal.mobile_no && isNaN(deal.mobile_no.replace(/[-+() ]/g, ''))) {
         error.value = __('Mobile No should be a number')
         return error.value

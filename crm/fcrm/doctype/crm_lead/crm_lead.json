@@ -148,11 +148,6 @@
    "options": "1-10\n11-50\n51-200\n201-500\n501-1000\n1000+"
   },
   {
-   "fieldname": "annual_revenue",
-   "fieldtype": "Currency",
-   "label": "Annual Revenue"
-  },
-  {
    "fieldname": "lead_owner",
    "fieldtype": "Link",
    "label": "Lead Owner",
@@ -365,12 +360,18 @@
    "fieldname": "trade_finance",
    "fieldtype": "Check",
    "label": "Trade Finance"
+  },
+  {
+   "fieldname": "annual_revenue",
+   "fieldtype": "Select",
+   "label": "Annual Revenue",
+   "options": "upto 1Cr\n1 - 10Cr\n10 - 50Cr\n50 - 250Cr\nabove 250Cr"
   }
  ],
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-29 12:15:29.574711",
+ "modified": "2024-12-04 16:48:07.286454",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Lead",

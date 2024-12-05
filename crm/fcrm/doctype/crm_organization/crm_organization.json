@@ -55,12 +55,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "annual_revenue",
-   "fieldtype": "Currency",
-   "label": "Annual Revenue",
-   "options": "currency"
-  },
-  {
    "fieldname": "industry",
    "fieldtype": "Link",
    "label": "Industry",
@@ -136,12 +130,18 @@
    "fieldtype": "Link",
    "label": "Trade Finance Status",
    "options": "CRM Trade Finance List"
+  },
+  {
+   "fieldname": "annual_revenue",
+   "fieldtype": "Select",
+   "label": "Annual Revenue",
+   "options": "upto 1Cr\n1 - 10Cr\n10 - 50Cr\n50 - 250Cr\nabove 250Cr"
   }
  ],
  "image_field": "organization_logo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-02 19:18:30.630147",
+ "modified": "2024-12-04 16:50:46.486506",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Organization",
