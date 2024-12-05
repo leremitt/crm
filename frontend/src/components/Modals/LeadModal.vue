@@ -132,13 +132,13 @@ function createNewLead() {
         error.value = __('First Name is mandatory')
         return error.value
       }
-      if (lead.annual_revenue) {
-        lead.annual_revenue = lead.annual_revenue.replace(/,/g, '')
-        if (isNaN(lead.annual_revenue)) {
-          error.value = __('Annual Revenue should be a number')
-          return error.value
-        }
-      }
+      // if (lead.annual_revenue) {
+      //   lead.annual_revenue = lead.annual_revenue.replace(/,/g, '')
+      //   if (isNaN(lead.annual_revenue)) {
+      //     error.value = __('Annual Revenue should be a number')
+      //     return error.value
+      //   }
+      // }
       if (lead.mobile_no && isNaN(lead.mobile_no.replace(/[-+() ]/g, ''))) {
         error.value = __('Mobile No should be a number')
         return error.value

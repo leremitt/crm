@@ -1,5 +1,5 @@
 <template>
-  <LayoutHeader v-if="lead.data">
+  <LayoutHeader v-if="lead.data" class="fixed-header">
     <template #left-header>
       <Breadcrumbs :items="breadcrumbs">
         <template #prefix="{ item }">
@@ -40,18 +40,8 @@
       />
     </template>
   </LayoutHeader>
-  <div v-if="lead?.data" class="flex h-full overflow-hidden">
-    <Tabs v-model="tabIndex" v-slot="{ tab }" :tabs="tabs">
-      <Activities
-        ref="activities"
-        doctype="CRM Lead"
-        :tabs="tabs"
-        v-model:reload="reload"
-        v-model:tabIndex="tabIndex"
-        v-model="lead"
-      />
-    </Tabs>
-    <Resizer class="flex flex-col justify-between border-l" side="right">
+  <div v-if="lead?.data" style="margin-bottom: 50px;" >
+    <!-- <Resizer class="flex flex-col justify-between border-l" side="right"> -->
       <div
         class="flex h-10.5 cursor-copy items-center border-b px-5 py-2.5 text-lg font-medium"
         @click="copyToClipboard(lead.data.name)"
@@ -168,9 +158,9 @@
       />
       <div
         v-if="fieldsLayout.data"
-        class="flex flex-1 flex-col justify-between overflow-hidden"
+        class="flex flex-1 flex-col justify-between"
       >
-        <div class="flex flex-col overflow-y-auto">
+        <div class="flex flex-col">
           <div
             v-for="(section, i) in fieldsLayout.data"
             :key="section.label"
@@ -183,6 +173,7 @@
                 :isLastSection="i == fieldsLayout.data.length - 1"
                 v-model="lead.data"
                 @update="updateField"
+                class="grid grid-cols-1 gap-y-2 md:grid-cols-3"
               />
               <template v-if="i == 0 && isManager()" #actions>
                 <Button
@@ -197,7 +188,17 @@
           </div>
         </div>
       </div>
-    </Resizer>
+    <!-- </Resizer> -->
+    <Tabs v-model="tabIndex" v-slot="{ tab }" :tabs="tabs">
+      <Activities
+        ref="activities"
+        doctype="CRM Lead"
+        :tabs="tabs"
+        v-model:reload="reload"
+        v-model:tabIndex="tabIndex"
+        v-model="lead"
+      />
+    </Tabs>
   </div>
   <AssignmentModal
     v-if="showAssignmentModal"
@@ -657,3 +658,4 @@ function openEmailBox() {
   activities.value.emailBox.show = true
 }
 </script>
+
