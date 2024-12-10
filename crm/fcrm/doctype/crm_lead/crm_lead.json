@@ -112,9 +112,10 @@
   {
    "fieldname": "email",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "label": "Email",
    "options": "Email",
-   "search_index": 1
+   "unique": 1
   },
   {
    "fieldname": "website",
@@ -124,6 +125,7 @@
   {
    "fieldname": "mobile_no",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "label": "Mobile No",
    "options": "Phone"
   },
@@ -371,7 +373,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-04 16:48:07.286454",
+ "modified": "2024-12-10 15:14:21.121434",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Lead",
