@@ -30,6 +30,7 @@
   "remittance",
   "document_management",
   "trade_finance",
+  "self_registered",
   "person_tab",
   "salutation",
   "first_name",
@@ -112,9 +113,10 @@
   {
    "fieldname": "email",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "label": "Email",
    "options": "Email",
-   "search_index": 1
+   "unique": 1
   },
   {
    "fieldname": "website",
@@ -124,8 +126,10 @@
   {
    "fieldname": "mobile_no",
    "fieldtype": "Data",
+   "in_global_search": 1,
    "label": "Mobile No",
-   "options": "Phone"
+   "options": "Phone",
+   "unique": 1
   },
   {
    "fieldname": "phone",
@@ -366,12 +370,18 @@
    "fieldtype": "Select",
    "label": "Annual Revenue",
    "options": "upto 1Cr\n1 - 10Cr\n10 - 50Cr\n50 - 250Cr\nabove 250Cr"
+  },
+  {
+   "default": "0",
+   "fieldname": "self_registered",
+   "fieldtype": "Check",
+   "label": "Self Registered"
   }
  ],
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-04 16:48:07.286454",
+ "modified": "2024-12-10 21:26:52.833811",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Lead",
