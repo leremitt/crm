@@ -128,8 +128,7 @@
    "fieldtype": "Data",
    "in_global_search": 1,
    "label": "Mobile No",
-   "options": "Phone",
-   "unique": 1
+   "options": "Phone"
   },
   {
    "fieldname": "phone",
@@ -381,7 +380,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-10 21:26:52.833811",
+ "modified": "2024-12-10 22:51:26.888655",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Lead",
