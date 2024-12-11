@@ -37,6 +37,7 @@
   "last_name",
   "email",
   "mobile_no",
+  "secondary_email",
   "organization_tab",
   "section_break_uixv",
   "naming_series",
@@ -376,12 +377,17 @@
    "fieldname": "self_registered",
    "fieldtype": "Check",
    "label": "Self Registered"
+  },
+  {
+   "fieldname": "secondary_email",
+   "fieldtype": "Data",
+   "label": "Secondary Email"
   }
  ],
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-11 00:04:11.104174",
+ "modified": "2024-12-11 13:05:42.237426",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Lead",
