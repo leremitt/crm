@@ -82,7 +82,7 @@
   {
    "fieldname": "first_name",
    "fieldtype": "Data",
-   "label": "First Name",
+   "label": "Name",
    "reqd": 1
   },
   {
@@ -102,7 +102,7 @@
    "options": "Gender"
   },
   {
-   "default": "New",
+   "default": "Not Contacted",
    "fieldname": "status",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -387,7 +387,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-11 13:05:42.237426",
+ "modified": "2024-12-11 22:41:05.266605",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Lead",

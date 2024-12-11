@@ -355,7 +355,7 @@ function parseRows(rows) {
       } else if (['modified', 'creation'].includes(row)) {
         _rows[row] = {
           label: dateFormat(lead[row], dateTooltipFormat),
-          timeAgo: __(timeAgo(lead[row])),
+          timeAgo: lead[row],
         }
       } else if (
         ['first_response_time', 'first_responded_on', 'response_by'].includes(
