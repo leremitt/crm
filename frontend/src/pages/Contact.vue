@@ -8,12 +8,16 @@
       </Breadcrumbs>
     </template>
   </LayoutHeader>
-  <div ref="parentRef" class="flex h-full">
-    <Resizer
+  <div ref="parentRef" class="h-full">
+    <!-- <Resizer
       v-if="contact.data"
       :parent="$refs.parentRef"
       class="flex h-full flex-col overflow-hidden border-r"
-    >
+    > -->
+    <div 
+       v-if="contact.data"
+      :parent="$refs.parentRef"
+      class="flex flex-col overflow-hidden border-r">
       <div class="border-b">
         <FileUploader
           @success="changeContactImage"
@@ -144,12 +148,14 @@
                 :isLastSection="i == fieldsLayout.data.length - 1"
                 v-model="contact.data"
                 @update="updateField"
+                class="grid grid-cols-1 gap-y-2 md:grid-cols-3"
               />
             </Section>
           </div>
         </div>
       </div>
-    </Resizer>
+    </div>
+    <!-- </Resizer> -->
     <Tabs class="overflow-hidden" v-model="tabIndex" :tabs="tabs">
       <template #tab="{ tab, selected }">
         <button

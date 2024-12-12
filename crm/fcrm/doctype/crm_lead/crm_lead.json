@@ -38,6 +38,7 @@
   "email",
   "mobile_no",
   "secondary_email",
+  "date_on",
   "organization_tab",
   "section_break_uixv",
   "naming_series",
@@ -382,12 +383,17 @@
    "fieldname": "secondary_email",
    "fieldtype": "Data",
    "label": "Secondary Email"
+  },
+  {
+   "fieldname": "date_on",
+   "fieldtype": "Datetime",
+   "label": "Date On"
   }
  ],
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-11 22:41:05.266605",
+ "modified": "2024-12-12 15:57:58.157921",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Lead",
