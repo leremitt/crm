@@ -597,7 +597,45 @@ def get_sidebar_fields(doctype, name):
 	fields_meta = {}
 	for field in fields:
 		fields_meta[field.fieldname] = field
+	print(layout[0]["fields"],"layout[0]layout[0]")
 
+	layout[0]["fields"].append({"label": "Created On",
+					 "type": "datetime",
+                    "name": "creation",
+                    "hidden": 0,
+                    "reqd": 0,
+                    "read_only": 0,
+				"placeholder": "Add Date On..."})
+	layout[0]["fields"].append({"label": "Last Updated On",
+					 "type": "datetime",
+                    "name": "modified",
+                    "hidden": 0,
+                    "reqd": 0,
+                    "read_only": 0,
+				"placeholder": "Add Date On..."})
+	layout[0]["fields"].append({"label": "Created By",
+					 "type": "datetime",
+                    "name": "owner",
+                    "hidden": 0,
+                    "reqd": 0,
+                    "read_only": 0,
+				"placeholder": "Add Date On..."})
+	layout[0]["fields"].append({"label": "Last Updated By",
+					 "type": "datetime",
+                    "name": "modified_by",
+                    "hidden": 0,
+                    "reqd": 0,
+                    "read_only": 0,
+				"placeholder": "Add Date On..."})
+	# layout[0]["fields"]["creation"]={"label": "Created On",
+	# 				 "type": "datetime",
+    #                 "name": "creation",
+    #                 "hidden": 0,
+    #                 "reqd": 0,
+    #                 "read_only": 0,
+	# 			"placeholder": "Add Date On..."}
+    # layout["creation"] ={}
+	# print(layout["creation"]["creation"],"layout["creation"]["fields"layout["creation"]["fields"")
 	return layout
 
 def get_field_obj(field):
