@@ -556,87 +556,82 @@ def get_fields_meta(doctype, restricted_fieldtypes=None, as_array=False):
 
 @frappe.whitelist()
 def get_sidebar_fields(doctype, name):
-	if not frappe.db.exists("CRM Fields Layout", {"dt": doctype, "type": "Side Panel"}):
-		return []
-	layout = frappe.get_doc("CRM Fields Layout", {"dt": doctype, "type": "Side Panel"}).layout
+    if not frappe.db.exists("CRM Fields Layout", {"dt": doctype, "type": "Side Panel"}):
+        return []
 
-	if not layout:
-		return []
-	
-	layout = json.loads(layout)
+    layout = frappe.get_doc("CRM Fields Layout", {"dt": doctype, "type": "Side Panel"}).layout
+    if not layout:
+        return []
 
-	not_allowed_fieldtypes = [
-		"Tab Break",
-		"Section Break",
-		"Column Break",
-	]
+    layout = json.loads(layout)
 
-	fields = frappe.get_meta(doctype).fields
-	fields = [field for field in fields if field.fieldtype not in not_allowed_fieldtypes]
+    not_allowed_fieldtypes = ["Tab Break", "Section Break", "Column Break"]
 
-	doc = frappe.get_cached_doc(doctype, name)
-	has_high_permlevel_fields = any(df.permlevel > 0 for df in fields)
-	if has_high_permlevel_fields:
-		has_read_access_to_permlevels = doc.get_permlevel_access("read")
-		has_write_access_to_permlevels = doc.get_permlevel_access("write")
+    fields = frappe.get_meta(doctype).fields
+    fields = [field for field in fields if field.fieldtype not in not_allowed_fieldtypes]
 
-	for section in layout:
-		section["name"] = section.get("name") or section.get("label")
-		for field in section.get("fields") if section.get("fields") else []:
-			field_obj = next((f for f in fields if f.fieldname == field), None)
-			if field_obj:
-				if field_obj.permlevel > 0:
-					field_has_write_access = field_obj.permlevel in has_write_access_to_permlevels
-					field_has_read_access = field_obj.permlevel in has_read_access_to_permlevels
-					if not field_has_write_access and field_has_read_access:
-						field_obj.read_only = 1
-					if not field_has_read_access and not field_has_write_access:
-						field_obj.hidden = 1
-				section["fields"][section.get("fields").index(field)] = get_field_obj(field_obj)
+    doc = frappe.get_cached_doc(doctype, name)
+    has_high_permlevel_fields = any(df.permlevel > 0 for df in fields)
+    if has_high_permlevel_fields:
+        has_read_access_to_permlevels = doc.get_permlevel_access("read")
+        has_write_access_to_permlevels = doc.get_permlevel_access("write")
 
-	fields_meta = {}
-	for field in fields:
-		fields_meta[field.fieldname] = field
-	print(layout[0]["fields"],"layout[0]layout[0]")
+    for section in layout:
+        section["name"] = section.get("name") or section.get("label")
+        for field in section.get("fields", []):  # Safe access to "fields"
+            field_obj = next((f for f in fields if f.fieldname == field), None)
+            if field_obj:
+                if field_obj.permlevel > 0:
+                    field_has_write_access = field_obj.permlevel in has_write_access_to_permlevels
+                    field_has_read_access = field_obj.permlevel in has_read_access_to_permlevels
+                    if not field_has_write_access and field_has_read_access:
+                        field_obj.read_only = 1
+                    if not field_has_read_access and not field_has_write_access:
+                        field_obj.hidden = 1
+                section["fields"][section.get("fields").index(field)] = get_field_obj(field_obj)
 
-	layout[0]["fields"].append({"label": "Created On",
-					 "type": "datetime",
-                    "name": "creation",
-                    "hidden": 0,
-                    "reqd": 0,
-                    "read_only": 0,
-				"placeholder": "Add Date On..."})
-	layout[0]["fields"].append({"label": "Last Updated On",
-					 "type": "datetime",
-                    "name": "modified",
-                    "hidden": 0,
-                    "reqd": 0,
-                    "read_only": 0,
-				"placeholder": "Add Date On..."})
-	layout[0]["fields"].append({"label": "Created By",
-					 "type": "datetime",
-                    "name": "owner",
-                    "hidden": 0,
-                    "reqd": 0,
-                    "read_only": 0,
-				"placeholder": "Add Date On..."})
-	layout[0]["fields"].append({"label": "Last Updated By",
-					 "type": "datetime",
-                    "name": "modified_by",
-                    "hidden": 0,
-                    "reqd": 0,
-                    "read_only": 0,
-				"placeholder": "Add Date On..."})
-	# layout[0]["fields"]["creation"]={"label": "Created On",
-	# 				 "type": "datetime",
-    #                 "name": "creation",
-    #                 "hidden": 0,
-    #                 "reqd": 0,
-    #                 "read_only": 0,
-	# 			"placeholder": "Add Date On..."}
-    # layout["creation"] ={}
-	# print(layout["creation"]["creation"],"layout["creation"]["fields"layout["creation"]["fields"")
-	return layout
+    fields_meta = {field.fieldname: field for field in fields}
+
+    # Add "Created On" and other fields safely if layout has sections
+    if layout and "fields" in layout[0]:
+        layout[0]["fields"].append({
+            "label": "Created On",
+            "type": "datetime",
+            "name": "creation",
+            "hidden": 0,
+            "reqd": 0,
+            "read_only": 0,
+            "placeholder": "Add Date On..."
+        })
+        layout[0]["fields"].append({
+            "label": "Last Updated On",
+            "type": "datetime",
+            "name": "modified",
+            "hidden": 0,
+            "reqd": 0,
+            "read_only": 0,
+            "placeholder": "Add Date On..."
+        })
+        layout[0]["fields"].append({
+            "label": "Created By",
+            "type": "datetime",
+            "name": "owner",
+            "hidden": 0,
+            "reqd": 0,
+            "read_only": 0,
+            "placeholder": "Add Date On..."
+        })
+        layout[0]["fields"].append({
+            "label": "Last Updated By",
+            "type": "datetime",
+            "name": "modified_by",
+            "hidden": 0,
+            "reqd": 0,
+            "read_only": 0,
+            "placeholder": "Add Date On..."
+        })
+
+    return layout
 
 def get_field_obj(field):
 	obj = {
