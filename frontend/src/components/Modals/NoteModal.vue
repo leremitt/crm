@@ -103,7 +103,6 @@ async function updateNote() {
     props.note.content === _note.value.content
   )
     return
-
   if (_note.value.name) {
     let d = await call('frappe.client.set_value', {
       doctype: 'FCRM Note',

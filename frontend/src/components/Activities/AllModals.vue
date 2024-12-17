@@ -4,7 +4,7 @@
     v-model:reloadTasks="activities"
     :task="task"
     :doctype="doctype"
-    :doc="doc.data?.name"
+    :doc="doc.data?.name ? doc.data?.name: doc?.name"
     @after="redirect('tasks')"
   />
   <NoteModal
@@ -12,7 +12,7 @@
     v-model:reloadNotes="activities"
     :note="note"
     :doctype="doctype"
-    :doc="doc.data?.name"
+    :doc="doc.data?.name ? doc.data?.name: doc?.name"
     @after="redirect('notes')"
   />
 </template>
@@ -29,7 +29,7 @@ const props = defineProps({
 
 const activities = defineModel()
 const doc = defineModel('doc')
-
+console.log(doc,"docdocdoc")
 // Tasks
 const showTaskModal = ref(false)
 const task = ref({})
@@ -82,7 +82,7 @@ const route = useRoute()
 const router = useRouter()
 
 function redirect(tabName) {
-  if (route.name == 'Lead' || route.name == 'Deal') {
+  if (route.name == 'Lead' || route.name == 'Deal' || route.name == 'organizations') {
     let hash = '#' + tabName
     if (route.hash != hash) {
       router.push({ ...route, hash })
