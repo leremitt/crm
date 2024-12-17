@@ -28,6 +28,7 @@
       "
       class="activities"
     >
+    
       <div v-if="title == 'WhatsApp' && whatsappMessages.data?.length">
         <WhatsAppArea
           class="px-3 sm:px-10"
@@ -543,8 +544,8 @@ const changeTabTo = (tabName) => {
 
 const all_activities = createResource({
   url: 'crm.api.activities.get_activities',
-  params: { name: doc.value.data.name },
-  cache: ['activity', doc.value.data.name],
+  params: { name: doc.value.data? doc.value.data.name :doc.value.name },
+  cache: ['activity', doc.value.data? doc.value.data.name :doc.value.name],
   auto: true,
   transform: ([versions, calls, notes, tasks, attachments]) => {
     if (calls?.length) {
@@ -589,10 +590,10 @@ const showWhatsappTemplates = ref(false)
 
 const whatsappMessages = createResource({
   url: 'crm.api.whatsapp.get_whatsapp_messages',
-  cache: ['whatsapp_messages', doc.value.data.name],
+  cache: ['whatsapp_messages', doc.value.data? doc.value.data.name :doc.value.name],
   params: {
     reference_doctype: props.doctype,
-    reference_name: doc.value.data.name,
+    reference_name: doc.value.data? doc.value.data.name :doc.value.name,
   },
   auto: true,
   transform: (data) => sortByCreation(data),
@@ -607,7 +608,7 @@ onMounted(() => {
   $socket.on('whatsapp_message', (data) => {
     if (
       data.reference_doctype === props.doctype &&
-      data.reference_name === doc.value.data.name
+      data.reference_name === doc.value.data? doc.value.data.name :doc.value.name
     ) {
       whatsappMessages.reload()
     }
@@ -629,7 +630,7 @@ function sendTemplate(template) {
     url: 'crm.api.whatsapp.send_whatsapp_template',
     params: {
       reference_doctype: props.doctype,
-      reference_name: doc.value.data.name,
+      reference_name: doc.value.data? doc.value.data.name :doc.value.name,
       to: doc.value.data.mobile_no,
       template,
     },

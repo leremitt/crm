@@ -83,6 +83,5 @@ export function useActiveTabManager(tabs, storageKey) {
   watch(tabs, () => {
     tabIndex.value = getActiveTab()
   })
-
   return { tabIndex, changeTabTo }
 }

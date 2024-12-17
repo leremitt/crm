@@ -75,13 +75,14 @@
         },
       }"
       :editable="showCommentBox"
-      v-model="doc.data"
+      v-model="dataComment"
       v-model:attachments="attachments"
       :doctype="doctype"
       :placeholder="__('@John, can you please check this?')"
     />
   </div>
 </template>
+
 
 <script setup>
 import EmailEditor from '@/components/EmailEditor.vue'
@@ -102,6 +103,9 @@ const props = defineProps({
 })
 
 const doc = defineModel()
+const dataComment = doc.data? doc.data:doc
+
+
 const reload = defineModel('reload')
 
 const emit = defineEmits(['scroll'])
@@ -124,7 +128,7 @@ const subject = computed(() => {
   } else if (doc.value.data?.organization) {
     prefix = doc.value.data.organization
   }
-  return `${prefix} (#${doc.value.data.name})`
+  return doc.value?.data ?  `${prefix} (#${doc.value.data.name})` :  doc.value.name
 })
 
 const signature = createResource({
@@ -189,7 +193,7 @@ async function sendMail() {
     subject: subject,
     content: newEmail.value,
     doctype: props.doctype,
-    name: doc.value.data.name,
+    name:doc.value.data? doc.value.data.name : doc.value.name,
     send_email: 1,
     sender: getUser().email,
     sender_full_name: getUser()?.full_name || undefined,
@@ -199,7 +203,7 @@ async function sendMail() {
 async function sendComment() {
   let comment = await call('frappe.desk.form.utils.add_comment', {
     reference_doctype: props.doctype,
-    reference_name: doc.value.data.name,
+    reference_name: doc.value.data? doc.value.data.name : doc.value.name,
     content: newComment.value,
     comment_email: getUser().email,
     comment_by: getUser()?.full_name || undefined,

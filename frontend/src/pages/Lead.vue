@@ -199,6 +199,8 @@
         v-model="lead"
       />
     </Tabs>
+    
+    
   </div>
   <AssignmentModal
     v-if="showAssignmentModal"
@@ -533,8 +535,8 @@ const tabs = computed(() => {
 })
 
 const { tabIndex, changeTabTo } = useActiveTabManager(tabs, 'lastLeadTab')
-
 watch(tabs, (value) => {
+
   if (value && route.params.tabName) {
     let index = value.findIndex(
       (tab) => tab.name.toLowerCase() === route.params.tabName.toLowerCase(),
