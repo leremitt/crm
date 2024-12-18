@@ -213,7 +213,7 @@ function createDeal() {
         error.value = err.message
         return
       }
-      error.value = err.messages.join('\n')
+      error.value = err.messages.join('\n').replace("for CRM Deal: ", "")
     },
   })
 }
