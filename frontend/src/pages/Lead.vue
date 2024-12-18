@@ -273,6 +273,20 @@
           {{ __("New contact will be created based on the person's details") }}
         </div>
       </div>
+      <div class="mb-4 mt-6 flex items-center gap-2 text-gray-600">
+        <DealsIcon class="h-4 w-4" />
+        <label class="block text-base">{{ __('Opportunities') }}</label>
+      </div>
+      <div class="ml-6">
+        <div class="flex items-center justify-between text-base">
+          <div>{{ __('Create Opportunities') }}</div>
+          <Switch v-model="existingOppChecked" />
+        </div>
+        <div class="mt-2.5 text-base">
+          {{ __("New Opportunities will be created based on Products") }}
+        </div>
+      </div>
+      <ErrorMessage class="mt-4" v-if="error1" :message="__(error1)" />
     </template>
   </Dialog>
   <SidePanelModal
@@ -310,6 +324,7 @@ import CameraIcon from '@/components/Icons/CameraIcon.vue'
 import LinkIcon from '@/components/Icons/LinkIcon.vue'
 import OrganizationsIcon from '@/components/Icons/OrganizationsIcon.vue'
 import ContactsIcon from '@/components/Icons/ContactsIcon.vue'
+import DealsIcon from '@/components/Icons/DealsIcon.vue'
 import AttachmentIcon from '@/components/Icons/AttachmentIcon.vue'
 import LayoutHeader from '@/components/LayoutHeader.vue'
 import Activities from '@/components/Activities/Activities.vue'
@@ -580,10 +595,12 @@ async function deleteLead(name) {
 const showConvertToDealModal = ref(false)
 const existingContactChecked = ref(false)
 const existingOrganizationChecked = ref(false)
+const existingOppChecked = ref(false)
+
 
 const existingContact = ref('')
 const existingOrganization = ref('')
-
+let error1 = ''
 async function convertToDeal(updated) {
   let valueUpdated = false
 
@@ -638,19 +655,41 @@ async function convertToDeal(updated) {
     )
     showConvertToDealModal.value = false
   } else {
-    let deal = await call(
-      'crm.fcrm.doctype.crm_lead.crm_lead.convert_to_deal',
-      {
-        lead: lead.data.name,
-      },
-    )
-    if (deal) {
-      capture('convert_lead_to_deal')
-      if (updated) {
-        await contacts.reload()
-      }
-      router.push({ name: 'Deal', params: { dealId: deal } })
+    
+    if (!lead.data.organization) {
+      error1 = "organization value is missing"
     }
+    else if (!lead.data.mobile_no) {
+      error1 = "Mobile value is missing"
+    }
+    else if (!lead.data.email) {
+      error1 = "Email value is missing"
+    } else {
+      try {
+        let deal = await call(
+          'crm.fcrm.doctype.crm_lead.crm_lead.convert_to_deal',
+          {
+            lead: lead.data.name,
+            existingOppChecked:existingOppChecked.value
+          },
+        )
+        if (deal) {
+          capture('convert_lead_to_deal')
+          if (updated) {
+            await contacts.reload()
+          }
+          router.push({ name: 'Organization', params: { organizationId: deal } })
+        }
+      } catch (error) {
+        if (error instanceof Error) {
+          console.log("Error message:", error.message);
+          console.log("Stack trace:", error.stack);
+        } else {
+          console.log("Unknown error:", error);
+        }
+      }
+    }
+
   }
 }
 

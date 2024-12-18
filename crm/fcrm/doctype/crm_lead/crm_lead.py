@@ -185,7 +185,7 @@ class CRMLead(Document):
 
 		return False
 
-	def create_deal(self, contact, organization):
+	def create_deal(self, contact, organization,product):
 		deal = frappe.new_doc("CRM Deal")
 
 		lead_deal_map = {
@@ -215,6 +215,7 @@ class CRMLead(Document):
 			{
 				"lead": self.name,
 				"contacts": [{"contact": contact}],
+				"product":product
 			}
 		)
 
@@ -257,7 +258,8 @@ class CRMLead(Document):
 			sla.apply(self)
 
 	def convert_to_deal(self):
-		return convert_to_deal(lead=self.name, doc=self)
+		print(self.existingOppChecked,"self.existingOppCheckedself.existingOppCheckedself.existingOppChecked")
+		return convert_to_deal(lead=self.name, doc=self, existingOppChecked=self.existingOppChecked)
 
 	@staticmethod
 	def get_non_filterable_fields():
@@ -339,11 +341,16 @@ class CRMLead(Document):
 
 
 @frappe.whitelist()
-def convert_to_deal(lead, doc=None):
+def convert_to_deal(lead, doc=None, existingOppChecked=False):
 	if not (doc and doc.flags.get("ignore_permissions")) and not frappe.has_permission("CRM Lead", "write", lead):
 		frappe.throw(_("Not allowed to convert Lead to Deal"), frappe.PermissionError)
-
 	lead = frappe.get_cached_doc("CRM Lead", lead)
+	if lead.organization is None:
+		frappe.throw(_("organization value is missing"), frappe.PermissionError)
+	if lead.mobile_no is None:
+		frappe.throw(_("mobile value is missing"), frappe.PermissionError)
+	if lead.email is None:
+		frappe.throw(_("email value is missing"), frappe.PermissionError)
 	if frappe.db.exists("CRM Lead Status", "Qualified"):
 		lead.status = "Qualified"
 	lead.converted = 1
@@ -352,5 +359,11 @@ def convert_to_deal(lead, doc=None):
 	lead.save(ignore_permissions=True)
 	contact = lead.create_contact(False)
 	organization = lead.create_organization()
-	# deal = lead.create_deal(contact, organization)
+	if(existingOppChecked):
+		if(lead.remittance):
+			lead.create_deal(contact, organization,"Remittance")
+		if(lead.trade_finance):
+			lead.create_deal(contact, organization,"Trade finance")
+		if(lead.document_management):
+			lead.create_deal(contact, organization,"Document management")
 	return organization
