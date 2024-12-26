@@ -21,6 +21,7 @@
   "remittance_stage",
   "document_management_stage",
   "trade_finance_stage",
+  "account_owner",
   "column_break_pnpp",
   "website",
   "territory",
@@ -141,12 +142,18 @@
    "fieldtype": "Select",
    "label": "Annual Revenue",
    "options": "upto 1Cr\n1 - 10Cr\n10 - 50Cr\n50 - 250Cr\nabove 250Cr"
+  },
+  {
+   "fieldname": "account_owner",
+   "fieldtype": "Link",
+   "label": "Account Owner",
+   "options": "User"
   }
  ],
  "image_field": "organization_logo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-10 22:53:37.723594",
+ "modified": "2024-12-26 13:33:05.158361",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "CRM Organization",
