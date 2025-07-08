@@ -21,6 +21,8 @@ class CRMLead(Document):
 		self.set_lead_name()
 		self.set_title()
 		self.validate_email()
+		if self.status in ["Demo - Scheduled", "Qualified"] and not self.industry: 
+			frappe.throw(_("Industry is mandatory when status is '{0}'").format(self.status))
 		if not self.is_new() and self.has_value_changed("lead_owner") and self.lead_owner:
 			self.share_with_agent(self.lead_owner)
 			self.assign_agent(self.lead_owner)
