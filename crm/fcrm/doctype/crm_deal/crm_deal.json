@@ -81,8 +81,7 @@
    "fieldname": "annual_revenue",
    "fieldtype": "Currency",
    "label": "Amount($)",
-   "options": "currency",
-   "reqd": 1
+   "options": "currency"
   },
   {
    "fetch_from": ".website",
