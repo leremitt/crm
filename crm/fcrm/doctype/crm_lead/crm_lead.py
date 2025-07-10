@@ -152,7 +152,7 @@ class CRMLead(Document):
 				"website": self.website,
 				"territory": self.territory,
 				"industry": self.industry,
-				"annual_revenue": self.annual_revenue,
+				"annual_revenue": self.annual_revenue or 0,
 				"remittance":self.remittance,
 				"document_management":self.document_management,
 				"trade_finance":self.trade_finance,
