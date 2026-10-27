@@ -662,6 +662,9 @@ async function convertToDeal(updated) {
     else if (!lead.data.mobile_no) {
       error1 = "Mobile value is missing"
     }
+    else if (!lead.data.custom_icp_type) {
+      error1 = "Please select ICP or Non ICP before converting this lead"
+    }
     else if (!lead.data.email) {
       error1 = "Email value is missing"
     } else {
