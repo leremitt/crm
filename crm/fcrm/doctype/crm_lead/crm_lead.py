@@ -354,7 +354,7 @@ def convert_to_deal(lead, doc=None, existingOppChecked=False):
 	if lead.email is None:
 		frappe.throw(_("email value is missing"), frappe.PermissionError)
 	if not lead.get("icp_type"):
-		frappe.throw(_("Please select ICP or Non ICP before marking this lead as Qualified."))
+		frappe.throw(_("Please select ICP or Non ICP before marking this lead as Qualified."), frappe.PermissionError)
 	if frappe.db.exists("CRM Lead Status", "Qualified"):
 		lead.status = "Qualified"
 	lead.converted = 1
